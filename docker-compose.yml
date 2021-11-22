@@ -1,0 +1,18 @@
+version: "3"
+services:
+  hyrule:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./GAME:/var/www/html
+    container_name: hyrule
+    tty: true
+    networks:
+      - no-internet
+
+networks:
+  no-internet:
+    driver: bridge
+    internal: true
